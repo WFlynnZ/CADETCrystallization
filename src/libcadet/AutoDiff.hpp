@@ -29,7 +29,7 @@
 
 #if defined(ACTIVE_SFAD) || defined(ACTIVE_SETFAD)
 
-	#define SFAD_DEFAULT_DIR 3300
+	#define SFAD_DEFAULT_DIR 80
 
 	#if defined(ACTIVE_SFAD)
 		#include "sfad.hpp"
