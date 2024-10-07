@@ -14,9 +14,6 @@
 #include <iterator>
 #include <vector>
 
-#include "LoggingUtils.hpp"
-#include "Logging.hpp"
-
 namespace cadet
 {
 	namespace model
@@ -43,7 +40,7 @@ namespace cadet
 					for (unsigned int i = 0; i < binCenters.size(); ++i)
 					{
 						// source term, find lij in set A
-						for (unsigned short int j = 0; j < i + 1; ++j)
+						for (unsigned short int j = 0; j < i; ++j)
 						{
 							for (unsigned short int k = j; k < i + 1; ++k)
 							{
@@ -62,7 +59,7 @@ namespace cadet
 						for (unsigned int j = 0; j < binCenters.size(); ++j)
 						{
 							sum_volume_cube_root = pow(binCenters[i] * binCenters[i] * binCenters[i] + binCenters[j] * binCenters[j] * binCenters[j], 1.0 / 3.0);
-							unsigned short int k = (i > j) ? i : j;
+							unsigned short int k = (i > j) ? i + 1 : j + 1;
 
 							i_index[i * binCenters.size() + j] = -1;        // -1 indicates there is no match
 							for (k; k < binCenters.size(); ++k) 
